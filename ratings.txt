@@ -1,0 +1,8 @@
+tarik 60.0 8.5
+gokhan 60.0 8.5
+alican 60.0 8.5
+azad 60.0 8.5
+ekrem 60.0 8.5
+kadir 60.0 8.5
+yavuz 60 8.5
+asim 60.0 8.5
