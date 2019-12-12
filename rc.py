@@ -25,9 +25,12 @@ def printHelp():
 
 dict = {}
 map_list = ["backlot", "bog", "crossfire", "wetwork"]
-with open("ratings.txt","rw") as f:
+with open("ratings2.txt","rw") as f:
 	# Read ratings and std deviations to put in dictionary
 	for line in f:
+		if line.replace(" ", "") == "":
+			line = f.readline
+			continue
 		list = line.split(" ")
 		# Create rating of player based on parameters
 		dict[str(list[0])] = Rating( float(list[1]), float(list[2]) )
@@ -105,6 +108,7 @@ with open("ratings.txt","rw") as f:
 			printHelp()
 
 		elif command == 'exit' or command == "e":
+			print "Writing rating changes to file"
 			break
 
 		else:
@@ -125,7 +129,11 @@ with open("ratings.txt","rw") as f:
 		print key + ": " + str(dict[key])
 
 
-
+with open("ratings2.txt","w") as f2:
+	
+	for key in dict:
+		line = key + " {1:.2f} {1:.2f}\n".format(dict[key].mu, dict[key].sigma)
+		f2.write(line)
 
 
 	
